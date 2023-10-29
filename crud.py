@@ -43,4 +43,4 @@ def update_dog(db: Session, dog: schemas.CreateDog, pk):
             .values(**dog.model_dump()))
     db.execute(stmt)
     make_timestamp(db)
-    return get_dog(db, dog.pk)
+    return get_dog(db, pk)

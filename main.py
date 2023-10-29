@@ -54,4 +54,4 @@ def update_dog(dog: schemas.CreateDog, pk: int, db: Session = Depends(get_db)):
     if db_dog is None:
         raise HTTPException(status_code=404, detail="Dog not found")
     crud.update_dog(db, dog, pk)
-    return crud.create_dog(db, dog)
+    return crud.get_dog(db, pk)

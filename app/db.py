@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-load_dotenv("../.env")
+load_dotenv(".env")
 load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 
 DB_HOST = os.getenv("DB_HOST")

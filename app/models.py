@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, Enum, Integer
 
-from db import Base
-from schemas import DogType
+from app.db import Base
+from app.schemas import DogType
 
 
 class Dog(Base):

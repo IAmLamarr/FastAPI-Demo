@@ -4,8 +4,8 @@ import time
 from sqlalchemy import update
 from sqlalchemy.orm import Session
 
-import models
-import schemas
+import app.models as models
+import app.schemas as schemas
 
 
 def make_timestamp(db: Session):

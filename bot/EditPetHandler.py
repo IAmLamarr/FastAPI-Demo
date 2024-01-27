@@ -65,9 +65,9 @@ class EditPetHandler:
             "name": self.__curr_name[user_id],
         }
         if self.__create_mode[user_id]:
-            post(f"{self.__base.webhook_url}/dog", json=data)
+            post(f"{self.__base.webhook_url}/dog", json=data, timeout=2)
         else:
-            patch(f"{self.__base.webhook_url}/dog/{self.__pet_id[user_id]}", json=data)
+            patch(f"{self.__base.webhook_url}/dog/{self.__pet_id[user_id]}", json=data, timeout=2)
         self.__base.bot.send_message(chat_id, "Данные успешно сохранены")
 
         if not self.__create_mode[user_id]:
@@ -86,7 +86,7 @@ class EditPetHandler:
         self.__base.bot.send_message(chat_id, self.query_handlers[0]["text"])
 
     def __req_pet_data(self, chat_id, user_id, pet_id):
-        dog_req = get(f"{self.__base.webhook_url}/dog/{pet_id}")
+        dog_req = get(f"{self.__base.webhook_url}/dog/{pet_id}", timeout=2)
         if dog_req.status_code == 200:
             self.__pet_id[user_id] = pet_id
             dog = dog_req.json()

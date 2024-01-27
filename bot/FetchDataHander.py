@@ -22,7 +22,7 @@ class FetchDataHandler:
         self.__base.bot.send_message(chat_id, self.query_handlers[0]["text"])
 
     def __req_pet_data(self, chat_id, user_id, pet_id):
-        dog_req = get(f"{self.__base.webhook_url}/dog/{pet_id}")
+        dog_req = get(f"{self.__base.webhook_url}/dog/{pet_id}", timeout=2)
         if dog_req.status_code == 200:
             dog = dog_req.json()
             md = self.__base.format_pet(dog)
